@@ -1,214 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HR Clan Guide</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    /* Reset & base styles */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #1e1e2f;
-      color: #e0e0e0;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-    a { text-decoration: none; color: inherit; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HR Clan Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  /* Reset & base */
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family:'Inter', sans-serif; background:#1e1e2f; color:#e0e0e0; line-height:1.6; overflow-x:hidden; }
 
-    /* Container */
-    .container {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 1rem 2rem;
-    }
+  /* Container */
+  .container { max-width:900px; margin:2rem auto; padding:1rem 2rem; }
 
-    /* Header */
-    header {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-    header h1 {
-      font-size: 2.8rem;
-      font-weight: 700;
-      background: linear-gradient(270deg, #ff79c6, #8be9fd, #50fa7b);
-      background-size: 600% 600%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: gradientAnimation 10s ease infinite;
-    }
-    @keyframes gradientAnimation {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-    header p {
-      margin-top: 0.5rem;
-      color: #a0a0a0;
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeUp 1s forwards;
-      animation-delay: 0.5s;
-    }
+  /* Header */
+  header { text-align:center; margin-bottom:3rem; }
+  header h1 {
+    font-size:2.8rem; font-weight:700;
+    background: linear-gradient(270deg,#ff79c6,#8be9fd,#50fa7b);
+    background-size:600% 600%;
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    animation: gradient 10s ease infinite;
+  }
+  @keyframes gradient {
+    0% { background-position:0% 50%; }
+    50% { background-position:100% 50%; }
+    100% { background-position:0% 50%; }
+  }
+  header p { margin-top:0.5rem; color:#a0a0a0; opacity:0; transform:translateY(20px); animation: fadeUp 1s forwards; animation-delay:0.5s; }
 
-    /* Section styles */
-    section {
-      margin-bottom: 2rem;
-      background: #2b2b3f;
-      border-radius: 15px;
-      padding: 1.5rem;
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeUp 0.6s forwards;
-    }
-    section:nth-of-type(1) { animation-delay: 0.2s; }
-    section:nth-of-type(2) { animation-delay: 0.4s; }
-    section:nth-of-type(3) { animation-delay: 0.6s; }
-    section:nth-of-type(4) { animation-delay: 0.8s; }
-    section:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 30px rgba(0,0,0,0.4);
-    }
+  /* Sections */
+  section {
+    margin-bottom:2rem; background:#2b2b3f; border-radius:15px; padding:1.5rem;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    opacity:0; transform:translateY(20px); animation: fadeUp 0.6s forwards;
+  }
+  section:nth-of-type(1){ animation-delay:0.2s; }
+  section:nth-of-type(2){ animation-delay:0.4s; }
+  section:nth-of-type(3){ animation-delay:0.6s; }
+  section:nth-of-type(4){ animation-delay:0.8s; }
+  section:hover { transform:translateY(-5px); box-shadow:0 15px 30px rgba(0,0,0,0.4); }
 
-    @keyframes fadeUp {
-      to { opacity: 1; transform: translateY(0); }
-    }
+  @keyframes fadeUp { to { opacity:1; transform:translateY(0); } }
 
-    h2 {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-      color: #50fa7b;
-    }
+  h2 { font-size:1.8rem; margin-bottom:1rem; color:#50fa7b; }
 
-    /* Collapsible content */
-    .collapsible {
-      background: #3c3c5c;
-      color: #f8f8f2;
-      cursor: pointer;
-      padding: 0.8rem 1rem;
-      width: 100%;
-      border: none;
-      border-radius: 10px;
-      text-align: left;
-      outline: none;
-      font-size: 1.1rem;
-      transition: all 0.3s ease;
-      margin-bottom: 0.5rem;
-    }
-    .collapsible:hover {
-      background: #50fa7b33;
-      transform: scale(1.02);
-    }
-    .content {
-      padding: 0 1rem;
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.5s ease, padding 0.3s ease;
-      margin-bottom: 1rem;
-    }
+  /* Collapsible */
+  .collapsible {
+    background:#3c3c5c; color:#f8f8f2; cursor:pointer; padding:0.8rem 1rem;
+    width:100%; border:none; border-radius:10px; text-align:left; outline:none; font-size:1.1rem;
+    transition: all 0.3s ease; margin-bottom:0.5rem;
+  }
+  .collapsible:hover { background:#50fa7b33; transform:scale(1.02); }
+  .content {
+    padding:0 1rem; max-height:0; overflow:hidden;
+    transition:max-height 0.5s ease, padding 0.3s ease; margin-bottom:1rem;
+  }
 
-    /* Lists */
-    ul {
-      padding-left: 1.2rem;
-      margin-bottom: 1rem;
-    }
-    li { margin-bottom: 0.5rem; }
+  /* Lists */
+  ul { padding-left:1.2rem; margin-bottom:1rem; }
+  li { margin-bottom:0.5rem; }
 
-    /* Code blocks */
-    pre {
-      background: #1e1e2f;
-      padding: 0.8rem 1rem;
-      border-radius: 10px;
-      overflow-x: auto;
-      font-family: monospace;
-      margin-bottom: 1rem;
-      transition: transform 0.3s ease;
-    }
-    pre:hover {
-      transform: scale(1.02);
-    }
+  /* Code blocks */
+  pre {
+    background:#1e1e2f; padding:0.8rem 1rem; border-radius:10px; overflow-x:auto;
+    font-family:monospace; margin-bottom:1rem; transition: transform 0.3s ease;
+  }
+  pre:hover { transform:scale(1.02); }
 
-    /* Footer */
-    footer {
-      text-align: center;
-      margin-top: 3rem;
-      color: #666;
-      font-size: 0.9rem;
-    }
-  </style>
+  /* Footer */
+  footer { text-align:center; margin-top:3rem; color:#666; font-size:0.9rem; }
+</style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>HR Clan Guide</h1>
-      <p>A complete guide for HRs on handling tickets, events, and blacklists</p>
-    </header>
+<div class="container">
+  <header>
+    <h1>HR Clan Guide</h1>
+    <p>A complete guide for HRs on handling tickets, events, and blacklists</p>
+  </header>
 
-    <!-- Verification Tickets -->
-    <section>
-      <h2>Verification Tickets</h2>
-      <button class="collapsible">Instructions</button>
-      <div class="content">
-        <ul>
-          <li>Accept the player into the group and update them with Rover.</li>
-          <li>If they aren't verified, instruct them to verify with Rover.</li>
-          <li>Add the correct timezone role:</li>
-          <ul>
-            <li>EST – Americas</li>
-            <li>GMT – Europe, Africa, Middle East</li>
-            <li>Asia – Asia & Oceania</li>
-          </ul>
-          <li>Save the ticket transcript before closing and deleting it.</li>
-          <li><strong>Note:</strong> CW cases are not accepted.</li>
-        </ul>
-      </div>
-    </section>
+  <section>
+    <h2>Verification Tickets</h2>
+    <button class="collapsible">Instructions</button>
+    <div class="content">
+      <ul>
+        <li>Accept the player into the group and update them with Rover.</li>
+        <li>If they aren't verified, instruct them to verify with Rover.</li>
+        <li>Add the correct timezone role:
+          <ul>
+            <li>EST – Americas</li>
+            <li>GMT – Europe, Africa, Middle East</li>
+            <li>Asia – Asia & Oceania</li>
+          </ul>
+        </li>
+        <li>Save the ticket transcript before closing and deleting it.</li>
+        <li><strong>Note:</strong> CW cases are not accepted.</li>
+      </ul>
+    </div>
+  </section>
 
-    <!-- Raid Request Tickets -->
-    <section>
-      <h2>Raid Request Tickets</h2>
-      <button class="collapsible">Instructions</button>
-      <div class="content">
-        <ul>
-          <li>Give the player the raid request role.</li>
-          <li>Do <strong>not</strong> delete or close the ticket.</li>
-        </ul>
-      </div>
-    </section>
+  <section>
+    <h2>Raid Request Tickets</h2>
+    <button class="collapsible">Instructions</button>
+    <div class="content">
+      <ul>
+        <li>Give the player the raid request role.</li>
+        <li>Do <strong>not</strong> delete or close the ticket.</li>
+      </ul>
+    </div>
+  </section>
 
-    <!-- Blacklists -->
-    <section>
-      <h2>Clan & Player Blacklists</h2>
-      <button class="collapsible">Instructions</button>
-      <div class="content">
-        <h3>Clan Blacklist</h3>
-        <pre>
-- Clan name:
+  <section>
+    <h2>Clan & Player Blacklists</h2>
+    <button class="collapsible">Instructions</button>
+    <div class="content">
+      <h3>Clan Blacklist</h3>
+      <pre>- Clan name:
 - Time:
 - Reason:
-        </pre>
-        <h3>Player Blacklist</h3>
-        <pre>
-- Player name:
+      </pre>
+      <h3>Player Blacklist</h3>
+      <pre>- Player name:
 - Time:
 - Reason:
-        </pre>
-        <p>Use common sense; logs will be checked for validity.</p>
-      </div>
-    </section>
+      </pre>
+      <p>Use common sense; logs will be checked for validity.</p>
+    </div>
+  </section>
 
-    <!-- Events -->
-    <section>
-      <h2>Events</h2>
-      <button class="collapsible">Instructions</button>
-      <div class="content">
-        <ul>
-          <li>Shout events using this format:
-            <pre>
-@everyone
+  <section>
+    <h2>Events</h2>
+    <button class="collapsible">Instructions</button>
+    <div class="content">
+      <ul>
+        <li>Shout events using this format:
+          <pre>@everyone
 
 # Defending/Raiding (clan name)
 
@@ -217,53 +144,50 @@ Timezone:
 Numbers: (e.g. 6+ 7+ 8+ 9+ etc.)```
 
 Link:
-            </pre>
-          </li>
-          <li>Take 1 screenshot of player list before event ends.</li>
-          <li>Take a victory screenshot after event:
-            <ul>
-              <li>If lost, only player list screenshot needed</li>
-              <li>Post victory screenshots in #victories with topfrag & secondfrag MVPs</li>
-            </ul>
-          </li>
-          <li>Distribute XP via /add xp in #rankings:
-            <ul>
-              <li>15 XP – top 2 frags in events</li>
-              <li>10 XP – all other players in events</li>
-              <li>5 XP – spectators (subs)</li>
-              <li>5 XP – each player in DTS</li>
-              <li>HRs & elites cannot receive XP</li>
-            </ul>
-          </li>
-          <li>Elite logs: track topfrag/secondfrag over total events, promote after 5 top/second frags.</li>
-          <li>Active & knowledgeable HRs will be promoted automatically.</li>
-        </ul>
-      </div>
-    </section>
+          </pre>
+        </li>
+        <li>Take 1 screenshot of player list before event ends.</li>
+        <li>Take a victory screenshot after event:
+          <ul>
+            <li>If lost, only player list screenshot needed</li>
+            <li>Post victory screenshots in #victories with topfrag & secondfrag MVPs</li>
+          </ul>
+        </li>
+        <li>Distribute XP via /add xp in #rankings:
+          <ul>
+            <li>15 XP – top 2 frags in events</li>
+            <li>10 XP – all other players in events</li>
+            <li>5 XP – spectators (subs)</li>
+            <li>5 XP – each player in DTS</li>
+            <li>HRs & elites cannot receive XP</li>
+          </ul>
+        </li>
+        <li>Elite logs: track topfrag/secondfrag over total events, promote after 5 top/second frags.</li>
+        <li>Active & knowledgeable HRs will be promoted automatically.</li>
+      </ul>
+    </div>
+  </section>
 
-    <footer>
-      &copy; 2025 HR Clan Guide
-    </footer>
-  </div>
+  <footer>&copy; 2025 HR Clan Guide</footer>
+</div>
 
-  <script>
-    // Collapsible functionality
-    const collapsibles = document.querySelectorAll('.collapsible');
-    collapsibles.forEach(btn => {
-      btn.addEventListener('click', () => {
-        btn.classList.toggle('active');
-        const content = btn.nextElementSibling;
-        if(content.style.maxHeight){
-          content.style.maxHeight = null;
-          content.style.paddingTop = "0";
-          content.style.paddingBottom = "0";
-        } else {
-          content.style.maxHeight = content.scrollHeight + "px";
-          content.style.paddingTop = "0.5rem";
-          content.style.paddingBottom = "0.5rem";
-        }
-      });
-    });
-  </script>
+<script>
+  // Collapsible
+  document.querySelectorAll('.collapsible').forEach(btn => {
+    btn.addEventListener('click', () => {
+      btn.classList.toggle('active');
+      const content = btn.nextElementSibling;
+      if(content.style.maxHeight){
+        content.style.maxHeight = null;
+        content.style.paddingTop = "0";
+        content.style.paddingBottom = "0";
+      } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+        content.style.paddingTop = "0.5rem";
+        content.style.paddingBottom = "0.5rem";
+      }
+    });
+  });
+</script>
 </body>
 </html>
