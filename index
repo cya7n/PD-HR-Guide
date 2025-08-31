@@ -1,124 +1,244 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Clan HR Guide</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HR Clan Guide</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
+    /* Reset & base styles */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    /* Avoid using Tailwind @apply inside a plain <style> — browsers can't process it. */
-    .card {
-      background: rgba(255,255,255,0.06);
-      backdrop-filter: blur(12px);
-      padding: 1.5rem;
-      border-radius: 1rem;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-      transition: transform .18s ease;
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #1e1e2f;
+      color: #e0e0e0;
+      line-height: 1.6;
+      overflow-x: hidden;
     }
-    .card:hover { transform: scale(1.02); }
+    a { text-decoration: none; color: inherit; }
+
+    /* Container */
+    .container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 1rem 2rem;
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      background: linear-gradient(90deg, #ff79c6, #8be9fd);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    header p {
+      margin-top: 0.5rem;
+      color: #a0a0a0;
+    }
+
+    /* Section styles */
+    section {
+      margin-bottom: 2rem;
+      background: #2b2b3f;
+      border-radius: 15px;
+      padding: 1.5rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: #50fa7b;
+    }
+
+    /* Collapsible content */
+    .collapsible {
+      background: #3c3c5c;
+      color: #f8f8f2;
+      cursor: pointer;
+      padding: 0.8rem 1rem;
+      width: 100%;
+      border: none;
+      border-radius: 10px;
+      text-align: left;
+      outline: none;
+      font-size: 1.1rem;
+      transition: background 0.3s ease;
+      margin-bottom: 0.5rem;
+    }
+    .collapsible:hover {
+      background: #50fa7b33;
+    }
+    .active, .collapsible:after {
+      /* Optional arrow animation can go here */
+    }
+    .content {
+      padding: 0 1rem;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      margin-bottom: 1rem;
+    }
+
+    /* Lists */
+    ul {
+      padding-left: 1.2rem;
+      margin-bottom: 1rem;
+    }
+    li {
+      margin-bottom: 0.5rem;
+    }
+
+    /* Code blocks */
+    pre {
+      background: #1e1e2f;
+      padding: 0.8rem 1rem;
+      border-radius: 10px;
+      overflow-x: auto;
+      font-family: monospace;
+      margin-bottom: 1rem;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      color: #666;
+      font-size: 0.9rem;
+    }
   </style>
 </head>
-<body class="bg-gradient-to-br from-gray-900 via-purple-900 to-black text-gray-100 font-sans">
-  <header class="text-center py-10">
-    <h1 class="text-5xl font-extrabold tracking-tight text-purple-300">HR Guide</h1>
-    <p class="mt-3 text-lg text-gray-300">Smooth, clear instructions for clan HRs</p>
-  </header>
+<body>
+  <div class="container">
+    <header>
+      <h1>HR Clan Guide</h1>
+      <p>A complete guide for HRs on handling tickets, events, and blacklists</p>
+    </header>
 
-  <main class="max-w-5xl mx-auto px-6 space-y-12 pb-16">
-    <section class="card">
-      <h2 class="text-2xl font-bold mb-4 text-purple-200">Verification Tickets</h2>
-      <ul class="list-disc pl-6 space-y-2 text-gray-100">
-        <li>Accept players into the group and update them with Rover.</li>
-        <li>If not verified with Rover, instruct them to do so.</li>
-        <li>Assign timezone roles:
-          <ul class="list-disc pl-6">
-            <li>EST → Americas</li>
-            <li>GMT → Europe, Africa, Middle East</li>
-            <li>Asia → Asia & Oceania</li>
+    <!-- Verification Tickets -->
+    <section>
+      <h2>Verification Tickets</h2>
+      <button class="collapsible">Instructions</button>
+      <div class="content">
+        <ul>
+          <li>Accept the player into the group and update them with Rover.</li>
+          <li>If they aren't verified, instruct them to verify with Rover.</li>
+          <li>Add the correct timezone role:</li>
+          <ul>
+            <li>EST – Americas</li>
+            <li>GMT – Europe, Africa, Middle East</li>
+            <li>Asia – Asia & Oceania</li>
           </ul>
-        </li>
-        <li>Save the ticket transcript before closing and deleting it.</li>
-        <li><strong>Note:</strong> We do NOT accept CW cases.</li>
-      </ul>
-    </section>
-
-    <section class="card">
-      <h2 class="text-2xl font-bold mb-4 text-purple-200">Raid Request Tickets</h2>
-      <ul class="list-disc pl-6 space-y-2 text-gray-100">
-        <li>Give the requester the <strong>raid request</strong> role.</li>
-        <li>Do not touch the ticket after that.</li>
-      </ul>
-      <div class="mt-4">
-        <p class="text-sm text-gray-300 font-medium mb-2">Quick message to use:</p>
-        <pre class="bg-black/40 p-3 rounded-lg text-sm whitespace-pre-wrap">Thanks! You've been given the Raid Request role. We'll reach out if needed.</pre>
+          <li>Save the ticket transcript before closing and deleting it.</li>
+          <li><strong>Note:</strong> CW cases are not accepted.</li>
+        </ul>
       </div>
     </section>
 
-    <section class="card">
-      <h2 class="text-2xl font-bold mb-4 text-purple-200">Blacklists</h2>
-      <h3 class="text-xl font-semibold text-purple-100 mt-2">Clan Blacklist</h3>
-      <p class="mb-2 text-gray-200">Format for #group-blacklists:</p>
-      <pre class="bg-black/40 p-3 rounded-lg text-sm whitespace-pre-wrap">- Clan name:
-- Time:
-- Reason:</pre>
-
-      <h3 class="text-xl font-semibold text-purple-100 mt-6">Player Blacklist</h3>
-      <p class="mb-2 text-gray-200">Pban them in-game, then use this format in #player-bans:</p>
-      <pre class="bg-black/40 p-3 rounded-lg text-sm whitespace-pre-wrap">- Player name:
-- Time:
-- Reason:</pre>
-
-      <p class="mt-3 text-gray-300">Leader will review times and reasons. Use common sense.</p>
+    <!-- Raid Request Tickets -->
+    <section>
+      <h2>Raid Request Tickets</h2>
+      <button class="collapsible">Instructions</button>
+      <div class="content">
+        <ul>
+          <li>Give the player the raid request role.</li>
+          <li>Do <strong>not</strong> delete or close the ticket.</li>
+        </ul>
+      </div>
     </section>
 
-    <section class="card">
-      <h2 class="text-2xl font-bold mb-4 text-purple-200">Events</h2>
-      <p class="text-gray-200">Shout events using the following format:</p>
-      <pre class="bg-black/40 p-3 rounded-lg text-sm whitespace-pre-wrap">@everyone
+    <!-- Blacklists -->
+    <section>
+      <h2>Clan & Player Blacklists</h2>
+      <button class="collapsible">Instructions</button>
+      <div class="content">
+        <h3>Clan Blacklist</h3>
+        <pre>
+- Clan name:
+- Time:
+- Reason:
+        </pre>
+        <h3>Player Blacklist</h3>
+        <pre>
+- Player name:
+- Time:
+- Reason:
+        </pre>
+        <p>Use common sense; logs will be checked for validity.</p>
+      </div>
+    </section>
+
+    <!-- Events -->
+    <section>
+      <h2>Events</h2>
+      <button class="collapsible">Instructions</button>
+      <div class="content">
+        <ul>
+          <li>Shout events using this format:
+            <pre>
+@everyone
 
 # Defending/Raiding (clan name)
 
-Gamemode:
+'''Gamemode:
 Timezone:
-Numbers: (e.g. 6+ 7+ 8+ 9+ etc.)
+Numbers: (e.g. 6+ 7+ 8+ 9+ etc.)```
 
-Link:</pre>
-
-      <ul class="list-disc pl-6 mt-4 space-y-2 text-gray-100">
-        <li>Before every raid/defense ends, take 1 screenshot of the player list (required for both wins and losses).</li>
-        <li>If victorious, also take a screenshot of the victory screen.</li>
-        <li>Post the victory screen screenshot in <strong>#victories</strong> and state the topfrag and secondfrag as MVPs.</li>
-        <li>Use the player list screenshot to give XP via <code>/add xp</code> in <strong>#rankings</strong>.</li>
-      </ul>
-
-      <h3 class="text-xl font-semibold text-purple-100 mt-6">XP Distribution</h3>
-      <ul class="list-disc pl-6 space-y-1 text-gray-100">
-        <li>15XP → Topfrag & secondfrag in raids/defenses</li>
-        <li>10XP → Each participating player</li>
-        <li>5XP → Spectators (subs)</li>
-        <li>5XP → Each player in DTS’s</li>
-        <li><strong>Note:</strong> HR’s and Elites cannot receive XP.</li>
-      </ul>
+Link:
+            </pre>
+          </li>
+          <li>Take 1 screenshot of player list before event ends.</li>
+          <li>Take a victory screenshot after event:
+            <ul>
+              <li>If lost, only player list screenshot needed</li>
+              <li>Post victory screenshots in #victories with topfrag & secondfrag MVPs</li>
+            </ul>
+          </li>
+          <li>Distribute XP via /add xp in #rankings:
+            <ul>
+              <li>15 XP – top 2 frags in events</li>
+              <li>10 XP – all other players in events</li>
+              <li>5 XP – spectators (subs)</li>
+              <li>5 XP – each player in DTS</li>
+              <li>HRs & elites cannot receive XP</li>
+            </ul>
+          </li>
+          <li>Elite logs: track topfrag/secondfrag over total events, promote after 5 top/second frags.</li>
+          <li>Active & knowledgeable HRs will be promoted automatically.</li>
+        </ul>
+      </div>
     </section>
 
-    <section class="card">
-      <h2 class="text-2xl font-bold mb-4 text-purple-200">Elite Logs</h2>
-      <ul class="list-disc pl-6 space-y-2 text-gray-100">
-        <li>Log elite progress with format: <em>topfrag/secondfrag over total events fully played</em>.</li>
-        <li>Promote elites after hitting 5 topfrag/secondfrags.</li>
-        <li>If more than 2 elites attend, only log the topfrag & secondfrag — do not count it as a fail for others.</li>
-      </ul>
-    </section>
+    <footer>
+      &copy; 2025 HR Clan Guide
+    </footer>
+  </div>
 
-    <section class="card">
-      <h2 class="text-2xl font-bold mb-4 text-purple-200">Promotion Note</h2>
-      <p class="text-gray-100">If you are an active and knowledgeable HR, you will be promoted.</p>
-    </section>
-  </main>
-
-  <footer class="text-center py-10 text-gray-400 text-sm">
-    <p>Clan HR Guide • Made for smooth operations</p>
-  </footer>
+  <script>
+    // Collapsible functionality
+    const collapsibles = document.querySelectorAll('.collapsible');
+    collapsibles.forEach(btn => {
+      btn.addEventListener('click', () => {
+        btn.classList.toggle('active');
+        const content = btn.nextElementSibling;
+        if(content.style.maxHeight){
+          content.style.maxHeight = null;
+        } else {
+          content.style.maxHeight = content.scrollHeight + "px";
+        }
+      });
+    });
+  </script>
 </body>
 </html>
+
